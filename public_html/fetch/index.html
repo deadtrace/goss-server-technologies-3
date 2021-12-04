@@ -1,21 +1,13 @@
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>deadtrace fetch</title>
-
-</head>
-
-<body>
-  <input id="inp" type="text" />
-  <button id="bt" onclick="f()">button</button>
-  <script>
-    let input = document.getElementById("inp");
-    
-    async function f(){
-        let res = await fetch(input.value);
-        input.value = await res.text();
-    }
-  </script>
-</body>
+    <body>
+        <input type="text" id="inp">
+        <button id="bt" onclick="fetchtext();"></button>
+        <script>
+            async function fetchtext(){
+                let Response = await fetch(document.getElementById("inp").value);
+                document.getElementById("inp").value = '';
+                document.getElementById("inp").value = await Response.text();
+            }
+        </script>
+    </body>
 </html>
