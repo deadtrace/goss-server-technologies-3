@@ -8,20 +8,14 @@
 
 <body>
   <input id="inp" type="text" />
-  <button id="bt">button</button>
+  <button id="bt" onclick="f()">button</button>
   <script>
     let input = document.getElementById("inp");
-    let button = document.getElementById("bt");
     
-    button.addEventListener("click", () => {
-      fetch(input.value)
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        input.value = data;
-      });
-    });
+    async function f(){
+        let res = await fetch(input.value);
+        input.value = await res.text();
+    }
   </script>
 </body>
 </html>
